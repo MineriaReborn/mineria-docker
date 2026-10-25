@@ -7,7 +7,7 @@ on:
 
 jobs:
   build-and-push:
-    runs-on: ubuntu-latest
+    runs-on: ci
     environment: production
 
     steps:
@@ -24,6 +24,7 @@ jobs:
       - name: Build and push Docker image to Docker Hub
         uses: docker/build-push-action@v5
         with:
+          builder: ci-builder
           context: .
           push: true
           tags: ilhantech113/java_25:latest
